@@ -1,3 +1,11 @@
+<?php
+                if(isset($_POST['Usuario_log']) && isset($_POST['Password_log'])){
+                    require_once "./controllers/loginController.php";
+                    $ins_login = new loginController();
+                    echo $ins_login->iniciar_sesion_controller();
+                    exit();
+                }
+            ?>
             <!---------------------------------------------login--------------------------------------------------->
             <div class="login-layout">
                 <div class="login-left">
@@ -14,7 +22,7 @@
                             </div>
                             <button type="submit" class="login-button">INGRESAR</button>
                             <div class="form-footer">
-                                <a href="<?php echo SERVER_URL; ?>recuperarPassword/" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                                <a href="<?php echo SERVER_URL; ?>index.php?views=recuperarPassword" class="forgot-password">¿Olvidaste tu contraseña?</a>
                             </div>
                         </form>
                     </div>
@@ -114,10 +122,3 @@
                     }
                 });
             </script>
-            <?php 
-                if(isset($_POST['Usuario_log']) && isset($_POST['Password_log'])){
-                    require_once "./controllers/loginController.php";
-                    $ins_login = new loginController();
-                    echo $ins_login->iniciar_sesion_controller();
-                }
-            ?>

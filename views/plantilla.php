@@ -12,15 +12,15 @@
     $IV = new viewsController();
     $vistas = $IV->get_views_controller();
 
-    if ($vistas == "login" || $vistas == "404" || $vistas == "recuperarPassword") {
-        require_once "./views/content/" . $vistas . "-view.php";
+    if (strpos($vistas, "login-view.php") !== false || strpos($vistas, "404-view.php") !== false || strpos($vistas, "recuperarPassword-view.php") !== false) {
+        require_once $vistas;
     } else {
         /* inicializa sesion */
         session_start(['name' => 'SMP']);
         include_once "inc/header.php";
         
-        /* dividir cadenas por "/"" */
-        $pagina = explode("/", $_GET['views']);
+        /* obtener numero de pagina desde query string */
+        $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 
         require_once "./controllers/loginController.php";
         $lc = new loginController();
@@ -41,7 +41,13 @@
             <!---------------------------------------------Cuerpo principal--------------------------------------------------->
             <div class="main-content">
                 <!--------------------------------------------- contenido de platillas y vistas--------------------------------------------------->
-                <?php include_once $vistas; ?>
+                <?php
+                if(file_exists($vistas)){
+                    include_once $vistas;
+                } else {
+                    include_once "./views/content/404-view.php";
+                }
+                ?>
 
 
             </div>
@@ -54,11 +60,7 @@
     <?php
 
     }
-    include_once "inc/logOut.php";
-    include_once "inc/script.php";
 
-
-    include_once "inc/footer.php";
     ?>
 
 

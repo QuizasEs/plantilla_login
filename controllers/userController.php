@@ -252,7 +252,7 @@ class userController extends userModel
         $privilegio = mainModel::limpiar_cadena($privilegio);
         $id = mainModel::limpiar_cadena($id);
         $url = mainModel::limpiar_cadena($url);
-        $url = SERVER_URL . $url . "/";
+        $url = SERVER_URL . "index.php?views=" . $url;
         $busqueda = mainModel::limpiar_cadena($busqueda);
 
         $tabla = "";

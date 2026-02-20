@@ -17,7 +17,7 @@ if (isset($_POST['Nombres_reg']) && !empty($_POST['UsuarioName_reg'])) {
     session_start(['name' => 'SMP']);
     session_unset();
     session_destroy();
-    header("location: " . SERVER_URL . "login/");
+    header("location: " . SERVER_URL . "index.php?views=login");
     echo json_encode([
         "Alerta" => "simple",
         "Titulo" => "Sesión expirada",

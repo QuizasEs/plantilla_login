@@ -121,7 +121,7 @@ class mainModel
                         </li>';
         } else {
             $tabla .= '<li class="page-item">
-                            <a class="page-link" href="' . $url . ($pagina - 1) . '/" tabindex="-1">Previous</a>
+                            <a class="page-link" href="' . $url . '&pagina=' . ($pagina - 1) . '" tabindex="-1">Previous</a>
                         </li>
                         
                         ';
@@ -135,9 +135,9 @@ class mainModel
             }
 
             if ($pagina == $i) {
-                $tabla .= '<li class="page-item active"><a class="page-link" href="' . $url . $i . '/">' . $i . '</a></li>';
+                $tabla .= '<li class="page-item active"><a class="page-link" href="' . $url . '&pagina=' . $i . '">' . $i . '</a></li>';
             } else {
-                $tabla .= '<li class="page-item"><a class="page-link" href="' . $url . $i . '/">' . $i . '</a></li>';
+                $tabla .= '<li class="page-item"><a class="page-link" href="' . $url . '&pagina=' . $i . '">' . $i . '</a></li>';
             }
             $ci++;
         }
@@ -148,7 +148,7 @@ class mainModel
                         </li>';
         } else {
             $tabla .= '<li class="page-item">
-                            <a class="page-link" href="' . $url . ($pagina + 1) . '/" tabindex="-1">Next</a>
+                            <a class="page-link" href="' . $url . '&pagina=' . ($pagina + 1) . '" tabindex="-1">Next</a>
                         </li>
                         
                         ';

@@ -16,20 +16,22 @@
                     $contenido = "./views/content/".$vistas."-view.php";
                 } else{
                     /* si no mandamos ERROR */
-                    $contenido = "404";
+                    $contenido = "./views/content/404-view.php";
                 }
             } elseif($vistas=="login" || $vistas=="index" || $vistas=="recuperarPassword"){
                 /* preguntamos que si la vista a la que se esta intentado ingresar es login, index o recuperarPassword */
                 /* SI es cualquiera de estas devolvemos la misma vista o login por defecto */
                 if($vistas=="recuperarPassword"){
-                    $contenido = "recuperarPassword";
+                    $contenido = "./views/content/recuperarPassword-view.php";
+                }elseif($vistas=="login" || $vistas=="index"){
+                    $contenido = "./views/content/login-view.php";
                 }else{
-                    $contenido = "login";
+                    $contenido = "./views/content/login-view.php";
                 }
 
                 /* si la vista a la que se intenta acceder esta fuera de la lista de vistas permitidas votar ERROR */
             } else{
-                $contenido = "404";
+                $contenido = "./views/content/404-view.php";
             }
 
             /* como la vista a la que se intenta acceder no pertenece a login o index pero si esta dentro de la lista de 
